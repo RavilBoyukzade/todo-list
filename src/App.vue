@@ -1,24 +1,28 @@
 <template>
   <div id="app">
     <h1>Todo application</h1>
-    <TodoList v-bind:todos="todos" />
+    <TodoList v-bind:todos="todos"
+    @remove-todo="removeTodo" />
   </div>
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import TodoList from "@/components/TodoList.vue";
 export default {
   name: "App",
   data() {
     return {
       todos: [
-        { id: 1, title: "Buy bread", compleated: false },
-        { id: 2, title: "Buy butter", compleated: false },
-        { id: 3, title: "Buy coca-cola", compleated: false },
-      ],
-    };
+        { id: 1, title: "Buy bread", completed: false },
+        { id: 2, title: "Buy butter", completed: false },
+        { id: 3, title: "Buy coca-cola", completed: false },
+      ]
+    }
+  },
+  methods:{
+    removeTodo(id){
+      this.todos =this.todos.filter(t=>t.id !==id)
+    }
   },
   components: {
     TodoList,
