@@ -1,11 +1,26 @@
 <template>
-  <div id="app"></div>n
+  <div id="app">
+    <h1>Todo application</h1>
+    <TodoList v-bind:todos="todos" />
+  </div>
 </template>
 
 <script>
+import TodoList from "@/components/TodoList.vue";
 export default {
   name: "App",
-  components: {},
+  data() {
+    return {
+      todos: [
+        { id: 1, title: "Buy bread", compleated: false },
+        { id: 2, title: "Buy butter", compleated: false },
+        { id: 3, title: "Buy coca-cola", compleated: false },
+      ],
+    };
+  },
+  components: {
+    TodoList,
+  },
 };
 </script>
 
