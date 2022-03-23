@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
       <ul>
           <TodoItem
           v-for="todo of todos" :key="todo"
@@ -31,4 +31,5 @@ export default{
         margin:0;
         padding:0;
     }
+    
 </style>

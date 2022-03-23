@@ -1,13 +1,16 @@
 <template>
   <div id="app">
     <h1>Todo application</h1>
-    <TodoList v-bind:todos="todos"
-    @remove-todo="removeTodo" />
+    <div class="add">
+      <AddTodo add-todo="addTodo" />
+    </div>
+    <TodoList v-bind:todos="todos" @remove-todo="removeTodo" />
   </div>
 </template>
 
 <script>
 import TodoList from "@/components/TodoList.vue";
+import AddTodo from "@/components/AddTodo.vue";
 export default {
   name: "App",
   data() {
@@ -16,16 +19,20 @@ export default {
         { id: 1, title: "Buy bread", completed: false },
         { id: 2, title: "Buy butter", completed: false },
         { id: 3, title: "Buy coca-cola", completed: false },
-      ]
-    }
+      ],
+    };
   },
-  methods:{
-    removeTodo(id){
-      this.todos =this.todos.filter(t=>t.id !==id)
-    }
+  methods: {
+    removeTodo(id) {
+      this.todos = this.todos.filter((t) => t.id !== id);
+    },
+    addTodo(todo) {
+      this.todos.push(todo);
+    },
   },
   components: {
     TodoList,
+    AddTodo,
   },
 };
 </script>
@@ -38,5 +45,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.add {
+  padding: 10px;
+  margin: 10px;
 }
 </style>

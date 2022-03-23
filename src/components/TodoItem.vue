@@ -20,11 +20,12 @@ export default {
       required: true
     },
   },
-};
+}
 </script>
 
 <style scoped>
 li {
+  border-radius:10px;
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
