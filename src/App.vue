@@ -17,8 +17,7 @@ export default {
   name: "App",
   data() {
     return {
-      todos: [
-      ],
+      todos: [],
     };
   },
   mounted(){
